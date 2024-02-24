@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    android:background="@drawable/background">
+
+
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.databindingmvvmdemo.viewmodels.LoginViewModel" />
+    </data>
+
+
+
+
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/sign"
+      android:text="Sign in"
+      android:textColor="@color/white"
+      android:textStyle="bold"
+      android:textSize="35dp"
+      android:gravity="center"/>
+
+
+            <EditText
+                android:id="@+id/inEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:layout_marginTop="20dp"
+                android:background="#30ffffff"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawablePadding="20dp"
+                android:padding="8dp"
+                android:text="@={viewModel.userEmail}" />
+
+
+            <EditText
+                android:id="@+id/inPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:layout_marginTop="15dp"
+                android:background="#30ffffff"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:drawableLeft="@drawable/baseline_info_24"
+                android:drawablePadding="20dp"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:text="@={viewModel.userPassword}" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:onClick="@{()-> viewModel.onLoginClicked(context)}"
+                android:text="LOGIN"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center"
+
+                bind:toastMessage="@{viewModel.toastMessage}" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/forgetPass"
+                android:text="Forgot password?"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+
+          
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/other"
+                android:text="or sign in with"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="35dp"
+                android:layout_gravity="center"/>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:layout_marginStart="35dp"
+         android:layout_marginBottom="50dp">
+
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/google"/>
+
+         <ImageView
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             android:layout_margin="20dp"
+             android:src="@drawable/facebook"/>
+
+         <ImageView
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             android:layout_margin="20dp"
+             android:src="@drawable/twitter"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
